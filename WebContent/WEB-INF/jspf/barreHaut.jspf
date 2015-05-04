@@ -1,0 +1,30 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container-fluid">
+
+		<div class="navbar-header">
+			<a class="navbar-brand" href="${baseURL}/main"> <span
+				class="glyphicon glyphicon-home"></span>
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+			<c:if test="${!empty sessionScope.uid }">
+				<ul class="nav navbar-nav">
+					<li><a href="${baseURL}/panel">Tableau de bord</a></li>
+				</ul>
+			</c:if>
+			<ul class="nav navbar-nav navbar-right">
+				<li><c:if test="${empty sessionScope.uid }">
+						<a href="${baseURL}/login">Connexion</a>
+					</c:if> <c:if test="${!empty sessionScope.uid }">
+						<a href="${baseURL}/logout"> Déconnexion ${sessionScope.uname}
+						</a>
+					</c:if></li>
+			</ul>
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
